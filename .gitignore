@@ -25,3 +25,17 @@ _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
+
+# Docker (overrides locales)
+docker-compose.override.yml
+
+# Entornos de producción
+.env.production
+.env.*.local
+
+# Vite
+public/hot
+
+# Assets compilados
+public/build/
+
