@@ -22,9 +22,14 @@ export default defineConfig({
         strictPort: true,
         hmr: {
             host: 'localhost',
+            clientPort: 5173,
         },
         watch: {
-            ignored: ['**/storage/framework/views/**'],
+            ignored: [
+                '**/node_modules/**',
+                '**/storage/**',
+                '**/vendor/**'
+            ],
         },
     },
 });
