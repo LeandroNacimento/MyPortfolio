@@ -32,7 +32,7 @@
     --nav-h:    52px;
     --bar-h:    28px;
     --page-x:   64px;
-    --section-y: 96px;
+    --section-y: 160px;
 }
 
 /* ── Reset & Base ──────────────────────────────────────────── */
@@ -43,7 +43,6 @@
 }
 
 html {
-    scroll-behavior: smooth;
     scroll-padding-top: calc(var(--nav-h) + 24px);
     background-color: var(--void);
     color: var(--ink);
@@ -59,6 +58,18 @@ body {
     min-height: 100vh;
     padding-top: var(--nav-h);
     padding-bottom: var(--bar-h);
+    position: relative;
+}
+
+/* Subtle grain overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 a {
@@ -232,9 +243,23 @@ a {
 }
 
 /* ── Page Layout ───────────────────────────────────────────── */
-.page {
+main {
+    position: relative;
     max-width: 1280px;
     margin: 0 auto;
+}
+
+.system-guide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: calc(var(--page-x) / 2);
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--edge) 5%, var(--edge) 95%, transparent);
+    z-index: -1;
+}
+
+.page {
     padding: 0 var(--page-x);
 }
 
@@ -341,6 +366,29 @@ a {
 
 .overview__cta:hover {
     background-color: rgba(123, 26, 26, 0.12);
+}
+
+.overview__right {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Subtle technical grid behind topology */
+.overview__right::before {
+    content: '';
+    position: absolute;
+    inset: -60px;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 24px 24px;
+    background-position: center;
+    mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
 }
 
 /* ── Topology ──────────────────────────────────────────────── */
@@ -477,6 +525,7 @@ a {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
 }
 
@@ -834,10 +883,17 @@ a {
     }
 }
 
-/* ── Reduced motion ────────────────────────────────────────── */
-@media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
+/* ── Section Entrance (SPA Monolithic Block) ───────────────── */
+.section-transition {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
 }
+
+.section-transition.has-entered {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
