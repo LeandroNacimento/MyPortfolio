@@ -13,14 +13,14 @@
     --surface:     #0D0F12;
     --edge:        #181A1D;
     --edge-hover:  #252830;
-    --brand:       #7B1A1A;
-    --brand-light: #9E2323;
+    --brand:       #B92B2B;
+    --brand-light: #DF4A4A;
     --wire:        #5C1414;
     --ink:         #E4E4E2;
-    --muted:       #5A5A58;
-    --muted-light: #7A7A78;
-    --alive:       #2D6A4A;
-    --alive-dim:   #1B3A28;
+    --muted:       #8A8A88;
+    --muted-light: #A8A8A6;
+    --alive:       #48BB78;
+    --alive-dim:   #276749;
     --depth:       #0E0C14;
 
     /* Typography */
@@ -280,6 +280,11 @@ main {
 }
 
 /* ── Overview / Hero ───────────────────────────────────────── */
+#overview {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 .overview {
     min-height: calc(100vh - var(--nav-h) - var(--bar-h));
     display: grid;
@@ -407,8 +412,9 @@ main {
 
 .topology__group-label {
     font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--muted);
+    font-size: 11px;
+    color: var(--muted-light);
+    font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -437,7 +443,7 @@ main {
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background-color: var(--alive-dim);
+    background-color: var(--alive);
     flex-shrink: 0;
     animation: pulse-dot 2.5s ease-in-out infinite;
 }
@@ -588,8 +594,9 @@ main {
 
 .stack-group__header {
     font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--muted);
+    font-size: 11px;
+    color: var(--muted-light);
+    font-weight: 600;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     padding-bottom: 10px;
@@ -684,8 +691,9 @@ main {
 
 .now__label {
     font-family: var(--font-mono);
-    font-size: 10px;
-    color: var(--muted);
+    font-size: 11px;
+    color: var(--muted-light);
+    font-weight: 600;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     flex-shrink: 0;

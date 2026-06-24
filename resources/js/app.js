@@ -8,10 +8,13 @@ function updateClock() {
     const el = document.getElementById('statusbar-clock');
     if (!el) return;
 
-    const now  = new Date();
-    const hh   = String(now.getUTCHours()).padStart(2, '0');
-    const mm   = String(now.getUTCMinutes()).padStart(2, '0');
-    el.textContent = `${hh}:${mm} UTC`;
+    const formatter = new Intl.DateTimeFormat('es-AR', {
+        timeZone: 'America/Argentina/Buenos_Aires',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false
+    });
+    el.textContent = `${formatter.format(new Date())} ARG`;
 }
 
 updateClock();
