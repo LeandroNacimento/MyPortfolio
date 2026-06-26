@@ -188,6 +188,9 @@
                                 Live
                             </a>
                         </div>
+                        <div class="project-card__log" aria-hidden="true">
+                            [200 OK] GET /api/products → 38ms
+                        </div>
                     </article>
 
                     {{-- Proyecto Privado --}}
@@ -200,7 +203,7 @@
                             <span class="badge">MySQL</span>
                         </div>
                         <div class="project-card__links">
-                            <span class="project-card__link" style="opacity: 0.35; cursor: default;"
+                            <span class="project-card__link is-disabled"
                                 aria-label="Repositorio privado">
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path
@@ -208,7 +211,7 @@
                                 </svg>
                                 Privado
                             </span>
-                            <span class="project-card__link" style="opacity: 0.35; cursor: default;"
+                            <span class="project-card__link is-disabled"
                                 aria-label="En desarrollo">
                                 <svg width="11" height="11" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                                     <path d="M7.5 2.5H2.5M7.5 2.5V7.5M7.5 2.5L2 8" stroke="currentColor"
@@ -216,6 +219,9 @@
                                 </svg>
                                 En desarrollo
                             </span>
+                        </div>
+                        <div class="project-card__log" aria-hidden="true">
+                            [INFO] Deployment completed successfully
                         </div>
                     </article>
 
@@ -333,7 +339,7 @@
                             infraestructura.</p>
                     </div>
                 </div>
-                <p class="now__updated">Actualizado: junio 2026</p>
+                <p class="now__updated">Actualizado: junio 2026<span class="terminal-cursor" aria-hidden="true">▍</span></p>
             </div>
         </section>
 

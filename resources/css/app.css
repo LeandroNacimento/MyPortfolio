@@ -33,6 +33,13 @@
     --bar-h:    28px;
     --page-x:   64px;
     --section-y: 160px;
+
+    /* Transitions & Animations */
+    --duration-fast:   120ms;
+    --duration-normal: 150ms;
+    --duration-slow:   200ms;
+    --ease-standard:   ease;
+    --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ── Reset & Base ──────────────────────────────────────────── */
@@ -117,7 +124,7 @@ a {
     letter-spacing: 0.02em;
     position: relative;
     padding-bottom: 2px;
-    transition: color 120ms ease;
+    transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .nav__link::after {
@@ -128,7 +135,7 @@ a {
     width: 0;
     height: 1px;
     background-color: var(--brand);
-    transition: width 120ms ease;
+    transition: width var(--duration-fast) var(--ease-standard);
 }
 
 .nav__link:hover {
@@ -160,7 +167,7 @@ a {
     display: block;
     height: 1px;
     background: var(--muted);
-    transition: width 150ms ease;
+    transition: width var(--duration-normal) var(--ease-standard);
 }
 
 .nav__toggle span:nth-child(1) { width: 20px; }
@@ -189,7 +196,7 @@ a {
     font-size: 18px;
     color: var(--muted);
     letter-spacing: 0.05em;
-    transition: color 120ms ease;
+    transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .nav__mobile a:hover {
@@ -221,7 +228,7 @@ a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    transition: opacity 200ms ease;
+    transition: opacity var(--duration-slow) var(--ease-standard);
 }
 
 .statusbar__dot {
@@ -234,12 +241,20 @@ a {
     vertical-align: middle;
     position: relative;
     top: -1px;
-    animation: pulse-dot 2s ease-in-out infinite;
+    animation: heartbeat-dot 3s var(--ease-standard) infinite;
 }
 
 @keyframes pulse-dot {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0.55; }
+}
+
+@keyframes heartbeat-dot {
+    0%, 100% { transform: scale(1); opacity: 0.6; }
+    10% { transform: scale(1.15); opacity: 1; }
+    20% { transform: scale(1); opacity: 0.8; }
+    30% { transform: scale(1.15); opacity: 1; }
+    40%, 90% { transform: scale(1); opacity: 0.6; }
 }
 
 /* ── Page Layout ───────────────────────────────────────────── */
@@ -362,29 +377,6 @@ main {
     letter-spacing: 0.04em;
 }
 
-.overview__status {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin-bottom: 32px;
-}
-
-.overview__status-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background-color: var(--alive);
-    animation: pulse-dot 2s ease-in-out infinite;
-    flex-shrink: 0;
-}
-
-.overview__status-text {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--alive);
-    letter-spacing: 0.04em;
-}
-
 .overview__cta {
     display: inline-flex;
     align-items: center;
@@ -397,7 +389,7 @@ main {
     border: 1px solid var(--brand);
     padding: 9px 18px;
     align-self: flex-start;
-    transition: background-color 120ms ease, color 120ms ease;
+    transition: background-color var(--duration-fast) var(--ease-standard), color var(--duration-fast) var(--ease-standard);
 }
 
 .overview__cta:hover {
@@ -522,7 +514,7 @@ main {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    transition: border-color 150ms ease, box-shadow 150ms ease;
+    transition: border-color var(--duration-normal) var(--ease-standard);
     position: relative;
 }
 
@@ -533,7 +525,7 @@ main {
     border-radius: 0 0 6px 6px;
     border: 1px solid transparent;
     border-top: none;
-    transition: border-color 150ms ease;
+    transition: border-color var(--duration-normal) var(--ease-standard);
     pointer-events: none;
 }
 
@@ -548,7 +540,7 @@ main {
     color: var(--ink);
     letter-spacing: -0.01em;
     line-height: 1.2;
-    transition: color 150ms ease;
+    transition: color var(--duration-normal) var(--ease-standard);
 }
 
 .project-card:hover .project-card__name {
@@ -596,7 +588,7 @@ main {
     font-size: 12px;
     color: var(--muted);
     letter-spacing: 0.04em;
-    transition: color 120ms ease;
+    transition: color var(--duration-fast) var(--ease-standard);
     display: flex;
     align-items: center;
     gap: 5px;
@@ -604,6 +596,17 @@ main {
 
 .project-card__link:hover {
     color: var(--ink);
+}
+
+.project-card__log {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--edge);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    opacity: 0.7;
 }
 
 /* ── Stack ─────────────────────────────────────────────────── */
@@ -646,7 +649,7 @@ main {
     align-items: center;
     height: 44px;
     border-bottom: 1px solid var(--edge);
-    transition: background-color 120ms ease;
+    transition: background-color var(--duration-fast) var(--ease-standard);
     padding: 0 4px;
 }
 
@@ -742,6 +745,21 @@ main {
     color: var(--muted);
     margin-top: 20px;
     letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+}
+
+.terminal-cursor {
+    display: inline-block;
+    margin-left: 6px;
+    color: var(--muted);
+    font-size: 10px;
+    animation: blink-cursor 1.2s step-end infinite;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 /* ── Contact ───────────────────────────────────────────────── */
@@ -790,7 +808,7 @@ main {
     width: 0;
     height: 1px;
     background-color: var(--brand);
-    transition: width 200ms ease;
+    transition: width var(--duration-slow) var(--ease-standard);
 }
 
 .contact__email:hover::after {
@@ -811,7 +829,7 @@ main {
     display: flex;
     align-items: center;
     gap: 6px;
-    transition: color 120ms ease;
+    transition: color var(--duration-fast) var(--ease-standard);
 }
 
 .contact__link:hover {
@@ -935,7 +953,7 @@ main {
 .section-transition {
     opacity: 0;
     transform: translateY(100px);
-    transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 1.2s var(--ease-emphasized);
     will-change: opacity, transform;
 }
 
@@ -945,3 +963,16 @@ main {
 }
 
 
+
+/* ── Utilities ─────────────────────────────────────────────── */
+.is-disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    cursor: default;
+}
+
+/* ── Accessibility ─────────────────────────────────────────── */
+:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 4px;
+}
