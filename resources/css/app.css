@@ -139,7 +139,7 @@ a {
 }
 
 .nav__link:hover {
-    color: var(--muted-light);
+    color: var(--ink);
 }
 
 .nav__link.is-active {
@@ -393,7 +393,7 @@ main {
 }
 
 .overview__cta:hover {
-    background-color: rgba(123, 26, 26, 0.12);
+    background-color: color-mix(in srgb, var(--brand) 12%, transparent);
 }
 
 .overview__right {
@@ -498,6 +498,21 @@ main {
     overflow: hidden;
 }
 
+.topology__wire::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, var(--brand-light), transparent);
+    transform: translateX(-100%);
+    opacity: 0.8;
+    transition: transform 0s; /* Reseteo instantáneo al salir del hover */
+}
+
+.topology__group:hover + .topology__connector .topology__wire::before {
+    transform: translateX(100%);
+    transition: transform calc(var(--duration-slow) * 4) var(--ease-standard);
+}
+
 /* ── Projects ──────────────────────────────────────────────── */
 .projects__grid {
     display: grid;
@@ -521,16 +536,36 @@ main {
 .project-card::before {
     content: '';
     position: absolute;
-    inset: -1px;
-    border-radius: 0 0 6px 6px;
-    border: 1px solid transparent;
-    border-top: none;
-    transition: border-color var(--duration-normal) var(--ease-standard);
+    inset: -6px;
+    border: 1px solid var(--brand-light);
+    opacity: 0;
+    transition: opacity var(--duration-normal) var(--ease-standard), transform var(--duration-normal) var(--ease-standard);
     pointer-events: none;
+    transform: scale(1.02);
+    /* mask the border to leave only 6px corners */
+    -webkit-mask: 
+        linear-gradient(#000, #000) top left / 6px 1px no-repeat,
+        linear-gradient(#000, #000) top left / 1px 6px no-repeat,
+        linear-gradient(#000, #000) top right / 6px 1px no-repeat,
+        linear-gradient(#000, #000) top right / 1px 6px no-repeat,
+        linear-gradient(#000, #000) bottom left / 6px 1px no-repeat,
+        linear-gradient(#000, #000) bottom left / 1px 6px no-repeat,
+        linear-gradient(#000, #000) bottom right / 6px 1px no-repeat,
+        linear-gradient(#000, #000) bottom right / 1px 6px no-repeat;
+    mask: 
+        linear-gradient(#000, #000) top left / 6px 1px no-repeat,
+        linear-gradient(#000, #000) top left / 1px 6px no-repeat,
+        linear-gradient(#000, #000) top right / 6px 1px no-repeat,
+        linear-gradient(#000, #000) top right / 1px 6px no-repeat,
+        linear-gradient(#000, #000) bottom left / 6px 1px no-repeat,
+        linear-gradient(#000, #000) bottom left / 1px 6px no-repeat,
+        linear-gradient(#000, #000) bottom right / 6px 1px no-repeat,
+        linear-gradient(#000, #000) bottom right / 1px 6px no-repeat;
 }
 
 .project-card:hover::before {
-    border-color: var(--brand);
+    opacity: 1;
+    transform: scale(1);
 }
 
 .project-card__name {
@@ -570,7 +605,7 @@ main {
     font-size: 11px;
     color: var(--muted);
     background-color: var(--edge);
-    border: 1px solid #222426;
+    border: 1px solid var(--edge-hover);
     border-radius: 3px;
     padding: 3px 8px;
     letter-spacing: 0.02em;
@@ -665,8 +700,10 @@ main {
 }
 
 .stack-row__role {
-    font-size: 13px;
+    font-family: var(--font-mono);
+    font-size: 12px;
     color: var(--muted);
+    letter-spacing: 0.02em;
 }
 
 .stack-row__status {
