@@ -58,7 +58,7 @@
                         </h1>
                         <div class="overview__details">
                             <div class="overview__details-text">
-                                <p class="overview__title">Backend Developer</p>
+                                <p class="overview__title">Backend & Systems Developer</p>
                                 <div class="overview__stack-lines">
                                     <span class="overview__stack-line">PHP · Laravel · MySQL</span>
                                     <span class="overview__stack-line">Docker · CI/CD · Azure</span>
@@ -72,7 +72,7 @@
                                     </svg>
                                 </a>
                             </div>
-                            <div class="overview__avatar-placeholder">FOTO</div>
+                            <img src="{{ asset('img/yo-2.png') }}" alt="Leandro Nacimento" class="overview__avatar">
                         </div>
                     </div>
 
@@ -80,9 +80,9 @@
                     <div class="overview__right" aria-label="Stack tecnológico conceptual">
                         <div class="topology">
 
-                            {{-- Group 1: CODE --}}
+                            {{-- Group 1: BACKEND & MVC --}}
                             <div class="topology__group">
-                                <span class="topology__group-label">CODE</span>
+                                <span class="topology__group-label">BACKEND & MVC</span>
                                 <div class="topology__box">
                                     <div class="topology__node">
                                         <span class="topology__node-dot" aria-hidden="true"></span>
@@ -104,9 +104,9 @@
                                 <div class="topology__wire"></div>
                             </div>
 
-                            {{-- Group 2: INFRA --}}
+                            {{-- Group 2: SERVERS & DEPLOY --}}
                             <div class="topology__group">
-                                <span class="topology__group-label">INFRA</span>
+                                <span class="topology__group-label">SERVERS & DEPLOY</span>
                                 <div class="topology__box">
                                     <div class="topology__node">
                                         <span class="topology__node-dot" aria-hidden="true"></span>
@@ -128,9 +128,9 @@
                                 <div class="topology__wire"></div>
                             </div>
 
-                            {{-- Group 3: CLOUD --}}
+                            {{-- Group 3: CLOUD & WORKFLOW --}}
                             <div class="topology__group">
-                                <span class="topology__group-label">CLOUD</span>
+                                <span class="topology__group-label">CLOUD & WORKFLOW</span>
                                 <div class="topology__box">
                                     <div class="topology__node">
                                         <span class="topology__node-dot" aria-hidden="true"></span>
@@ -142,7 +142,7 @@
                                     </div>
                                     <div class="topology__node">
                                         <span class="topology__node-dot" aria-hidden="true"></span>
-                                        <span class="topology__node-name">Git</span>
+                                        <span class="topology__node-name">Git & Agile</span>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                     <article class="project-card">
                         <h2 class="project-card__name">Ivonne Showroom</h2>
                         <p class="project-card__description">Sistema de gestión administrativa con catálogo de
-                            productos.</p>
+                            productos. Implementación de arquitectura MVC y diseño de base de datos relacional.</p>
                         <div class="project-card__badges" aria-label="Tecnologías">
                             <span class="badge">Laravel</span>
                             <span class="badge">PHP</span>
@@ -196,23 +196,22 @@
                     {{-- Proyecto Privado --}}
                     <article class="project-card">
                         <h2 class="project-card__name">Proyecto Privado</h2>
-                        <p class="project-card__description">Aplicación web actualmente en desarrollo.</p>
+                        <p class="project-card__description">Aplicación web backend. Integración de APIs REST y soporte
+                            para despliegue en la nube (Azure/Docker).</p>
                         <div class="project-card__badges" aria-label="Tecnologías">
                             <span class="badge">Laravel</span>
                             <span class="badge">Docker</span>
                             <span class="badge">MySQL</span>
                         </div>
                         <div class="project-card__links">
-                            <span class="project-card__link is-disabled"
-                                aria-label="Repositorio privado">
+                            <span class="project-card__link is-disabled" aria-label="Repositorio privado">
                                 <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                     <path
                                         d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
                                 </svg>
                                 Privado
                             </span>
-                            <span class="project-card__link is-disabled"
-                                aria-label="En desarrollo">
+                            <span class="project-card__link is-disabled" aria-label="En desarrollo">
                                 <svg width="11" height="11" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                                     <path d="M7.5 2.5H2.5M7.5 2.5V7.5M7.5 2.5L2 8" stroke="currentColor"
                                         stroke-width="1" stroke-linecap="round" stroke-linejoin="round" />
@@ -221,7 +220,7 @@
                             </span>
                         </div>
                         <div class="project-card__log" aria-hidden="true">
-                            [INFO] Deployment completed successfully
+                            [200 OK] GET /api/v1/documents → 112ms
                         </div>
                     </article>
 
@@ -248,14 +247,14 @@
                         </div>
                         <div class="stack-row" role="row">
                             <span class="stack-row__name" role="cell">Laravel 13</span>
-                            <span class="stack-row__role" role="cell">Framework</span>
+                            <span class="stack-row__role" role="cell">Framework MVC</span>
                             <span class="stack-row__status status--principal" role="cell">
                                 <span class="status-symbol" aria-hidden="true">●</span> Principal
                             </span>
                         </div>
                         <div class="stack-row" role="row">
                             <span class="stack-row__name" role="cell">MySQL 8</span>
-                            <span class="stack-row__role" role="cell">Database</span>
+                            <span class="stack-row__role" role="cell">Diseño de Base de Datos</span>
                             <span class="stack-row__status status--principal" role="cell">
                                 <span class="status-symbol" aria-hidden="true">●</span> Principal
                             </span>
@@ -264,7 +263,7 @@
 
                     {{-- Infraestructura --}}
                     <div class="stack-group" role="rowgroup">
-                        <div class="stack-group__header" role="columnheader">INFRAESTRUCTURA</div>
+                        <div class="stack-group__header" role="columnheader">SERVERS & DEPLOY</div>
                         <div class="stack-divider" aria-hidden="true"></div>
                         <div class="stack-row" role="row">
                             <span class="stack-row__name" role="cell">Docker</span>
@@ -282,7 +281,7 @@
                         </div>
                         <div class="stack-row" role="row">
                             <span class="stack-row__name" role="cell">Linux</span>
-                            <span class="stack-row__role" role="cell">Sistema operativo</span>
+                            <span class="stack-row__role" role="cell">Administración de servidores</span>
                             <span class="stack-row__status status--active" role="cell">
                                 <span class="status-symbol" aria-hidden="true">○</span> Activo
                             </span>
@@ -291,7 +290,7 @@
 
                     {{-- CI/CD & Cloud --}}
                     <div class="stack-group" role="rowgroup">
-                        <div class="stack-group__header" role="columnheader">CI/CD & CLOUD</div>
+                        <div class="stack-group__header" role="columnheader">CLOUD & WORKFLOW</div>
                         <div class="stack-divider" aria-hidden="true"></div>
                         <div class="stack-row" role="row">
                             <span class="stack-row__name" role="cell">GitHub Actions</span>
@@ -308,8 +307,15 @@
                             </span>
                         </div>
                         <div class="stack-row" role="row">
+                            <span class="stack-row__name" role="cell">Agile / Scrum</span>
+                            <span class="stack-row__role" role="cell">Metodologías de Trabajo</span>
+                            <span class="stack-row__status status--active" role="cell">
+                                <span class="status-symbol" aria-hidden="true">○</span> Activo
+                            </span>
+                        </div>
+                        <div class="stack-row" role="row">
                             <span class="stack-row__name" role="cell">Git</span>
-                            <span class="stack-row__role" role="cell">Versioning</span>
+                            <span class="stack-row__role" role="cell">Control de Versiones y Flujos</span>
                             <span class="stack-row__status status--active" role="cell">
                                 <span class="status-symbol" aria-hidden="true">○</span> Activo
                             </span>
@@ -327,19 +333,20 @@
                 <div class="now__rows">
                     <div class="now__row">
                         <span class="now__label">CONSTRUYENDO</span>
-                        <p class="now__value">Portfolio profesional y nuevos proyectos personales.</p>
+                        <p class="now__value">Portfolio profesional y nuevos proyectos personales backend.</p>
                     </div>
                     <div class="now__row">
                         <span class="now__label">APRENDIENDO</span>
-                        <p class="now__value">Docker, GitHub Actions y despliegues en Azure.</p>
+                        <p class="now__value">Refactorización, metodologías ágiles (Scrum) y flujos CI/CD en Azure.</p>
                     </div>
                     <div class="now__row">
                         <span class="now__label">EXPLORANDO</span>
-                        <p class="now__value">Arquitectura de aplicaciones Laravel, automatización y buenas prácticas de
-                            infraestructura.</p>
+                        <p class="now__value">Desarrollo de APIs REST, optimización de consultas SQL e integración en
+                            entornos Linux.</p>
                     </div>
                 </div>
-                <p class="now__updated">Actualizado: junio 2026<span class="terminal-cursor" aria-hidden="true">▍</span></p>
+                <p class="now__updated">Actualizado: junio 2026<span class="terminal-cursor" aria-hidden="true">▍</span>
+                </p>
             </div>
         </section>
 
