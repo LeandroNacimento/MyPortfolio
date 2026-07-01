@@ -580,11 +580,6 @@ main {
     font-size: 14px;
     color: var(--muted-light);
     line-height: 1.5;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    line-clamp: 1;
-    -webkit-box-orient: vertical;
 }
 
 .project-card__badges {
